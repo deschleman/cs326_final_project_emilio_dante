@@ -1,0 +1,25 @@
+{
+  "name": "cs326_final_project_emilio_dante",
+  "version": "1.0.0",
+  "description": "Table AND group details: Dante Eschleman: deschleman Emilio Velazquez: EmilioVelazquezCarter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deschleman/cs326_final_project_emilio_dante.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/deschleman/cs326_final_project_emilio_dante/issues"
+  },
+  "homepage": "https://github.com/deschleman/cs326_final_project_emilio_dante#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
