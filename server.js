@@ -1,9 +1,14 @@
 import express from "express";
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
+import listingRoutes from "./routes/listings.js";
+
+app.use("/listings", listingRoutes);
 
 // first route.... the landing/home page
 app.get("/", (req, res) => {
