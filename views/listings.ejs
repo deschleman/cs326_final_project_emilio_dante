@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volunteer Listings</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<h1>Volunteer Opportunities</h1>
+
+
+
+<form action="/listings" method="POST">
+
+<input
+name="organization"
+placeholder="Organization Name">
+
+<input
+name="title"
+placeholder="Opportunity Title">
+
+<input
+name="city"
+placeholder="City">
+
+
+<textarea
+name="description"
+placeholder="Description"></textarea>
+
+
+<button type="submit">
+Create Listing
+</button>
+
+</form>
+
+
+<h2>Current Listings</h2>
+
+
+<% listings.forEach(listing => { %>
+
+<div class="listing-card">
+
+<h3>
+<%= listing.title %>
+</h3>
+
+<p>
+Organization: <%= listing.organization %>
+</p>
+
+<p>
+City: <%= listing.city %>
+</p>
+
+<p>
+<%= listing.description %>
+</p>
+
+</div>
+
+
+<% }) %>
+
+
+</body>
+</html>

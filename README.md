@@ -15,3 +15,18 @@ We want to build around ethical and fair-use of AI in the classroom. We want to 
 
 Project description & directions for outside contributors:
 The project hopes to host organizations on our website in creating volunteering opportunities for initiatives that are held for the respective company. The domain is intended to provide a platform for initiatives that help the community in which the initiative is based in. At the moment we have our home, about, and project purpose routes set. A new contributor may first clone the repository locally, then install the necessary dependencies (js, npm, etc.) to contribute to any of the files currently in the branch or main. The port we are using to run our sever is 3000. So, to view the changes that the contributor has made: run in your terminal server.js, after this has ran open a new terminal and use curl -{the URL with the specific route you want to visit}.
+
+## Volunteer Listing Feature
+
+This feature we made simply allows organizations to make volunteer opportunities.
+Users of it can submit an organization name, title or name of oppurtinuty, city, and description.
+The information is checked/validated, saved to listings.json, and displayed back on the listings page.
+
+## How to Use
+
+Visit:
+
+/listings
+
+Fill out the volunteer opportunity form and submit it.
+The new listing will appear below the form.
