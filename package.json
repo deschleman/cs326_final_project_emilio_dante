@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/deschleman/cs326_final_project_emilio_dante#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongoose": "^9.9.1"
   }
 }

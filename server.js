@@ -6,9 +6,15 @@ const PORT = 3000;
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
-import listingRoutes from "./routes/listings.js";
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+import mongoose from "mongoose";
+import listingRoutes from "./routes/listingRoutes.js";
 
 app.use("/listings", listingRoutes);
+
+// TODO: fix actual mongoose connect
+await mongoose.connect(process.env.MONGODB_URI);
 
 // first route.... the landing/home page
 app.get("/", (req, res) => {
