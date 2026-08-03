@@ -4,7 +4,7 @@
   "description": "Table AND group details: Dante Eschleman: deschleman Emilio Velazquez: EmilioVelazquezCarter",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "start": "node server.js"
   },
   "repository": {
@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/deschleman/cs326_final_project_emilio_dante#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongoose": "^9.9.1"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
   }
 }
