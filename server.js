@@ -1,4 +1,5 @@
 import express from "express";
+import "dotenv/config";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,8 +14,12 @@ import listingRoutes from "./routes/listingRoutes.js";
 
 app.use("/listings", listingRoutes);
 
-// TODO: fix actual mongoose connect
+if (!process.env.MONGODB_URI) {
+  throw new Error("MONGODB_URI is missing. Add it to your .env file.");
+}
+
 await mongoose.connect(process.env.MONGODB_URI);
+console.log("Connected to MongoDB");
 
 // first route.... the landing/home page
 app.get("/", (req, res) => {
@@ -95,5 +100,28 @@ app.get("/project_purpose", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running here: http://localhost:${PORT}`);
 });
+
+async function startServer() {
+  if (!process.env.MONGODB_URI) {
+    throw new Error("MONGODB_URI is missing. To fix add it to your .env file.");
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000,
+    });
+
+    console.log("Connected to MongoDB");
+
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("MongoDB connection failed:", error.message);
+    process.exit(1);
+  }
+}
+
+startServer();
