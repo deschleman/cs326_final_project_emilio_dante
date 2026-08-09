@@ -5,9 +5,9 @@ const router = express.Router();
 
 
 
-router.get("/listings", showListings);
+router.get("/", showListings);
 
-router.post("/listings", addListing);
+router.post("/", addListing);
 
 
 export default router;

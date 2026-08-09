@@ -32,9 +32,22 @@ The new listing will appear below the form.
 
 #1 JEST/test suite: worked on by dante - run the ListingService.test.js test file to run (run in your terminal by using this command: "npm test"). All tests pass at the time of commit.
 #2 Mongoose repo: worked on by dante - changed file-based repo to using mongoose enacted in the previous hw04 homework and mentioned in the notes (same structure has been followed). Hop over to listingRepository.js to see final product of mongo db/mongoose set up for our application.
-#3 Tailwind restyling: worked on by emilio - (TODO: FILL WITH DESCR)
-#4 HTMX interaction: worked on by emilio - (TODO: FILL WITH DESCR)
+#3 Tailwind restyling: worked on by emilio - i added Tailwind styling to the volunteer listings page, included things like responsive form, butons, page layout, and lisitng cards. Tailwind CSS is built by 'src/input.css' into 'public/style.css when npm run build:css is used
+#4 HTMX interaction: worked on by emilio - io added HTMx to our liting form, so that a new volunteer opening is saved and then also inserted into the listings page without needing do to a reload o the entire page
+
 
 ## system diagram:
 
-TODO: complete this diagram in full
+browser
+  |
+express server
+  |
+Listing routes
+  |
+listing controller
+  |
+llisting service
+  |
+mongoose listing repository
+  |\
+MongoDB

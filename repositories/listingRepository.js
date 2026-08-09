@@ -15,10 +15,11 @@ import mongoose from "mongoose";
 
 const ListingSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    organization: { type: Date, required: true },
-    description: { type: Number, min: 0, max: 100 },
-    city: { type: Boolean, default: false },
+    title: { type: String, required: true, trim: true },
+organization: { type: String, required: true, trim: true },
+description: { type: String, required: true, trim: true },
+city: { type: String, required: true, trim: true },
+
   },
   { timestamps: true },
 );

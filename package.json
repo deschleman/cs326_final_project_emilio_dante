@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/style.css --minify"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,14 @@
   "homepage": "https://github.com/deschleman/cs326_final_project_emilio_dante#readme",
   "dependencies": {
     "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
     "express": "^5.2.1",
+    "htmx.org": "^2.0.10",
     "mongoose": "^9.9.1"
   },
   "devDependencies": {
-    "jest": "^30.4.2"
+    "@tailwindcss/cli": "^4.3.3",
+    "jest": "^30.4.2",
+    "tailwindcss": "^4.3.3"
   }
 }
