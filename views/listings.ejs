@@ -1,71 +1,92 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-    <title>Volunteer Listings</title>
-    <link rel="stylesheet" href="/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Listings:</title>
+  <link rel="stylesheet" href="/style.css">
+
+  <script defer src="/vendor/htmx/htmx.min.js"></script>
+  <script defer src="/app.js"></script>
 </head>
 
-<body>
-
-<h1>Volunteer Opportunities</h1>
+<body class="min-h-screen bg-slate-200 text-slate-800">
 
 
+  <main class="mx-auto max-w-3xl p-6">
+    <h1 class="mb-6 text-3xl font-bold text-emerald-700">
+      Volunteer Opportunities
 
-<form action="/listings" method="POST">
+    </h1>
 
-<input
-name="organization"
-placeholder="Organization Name">
+    <form
+      id="listing-form"
+      action="/listings"
 
-<input
-name="title"
-placeholder="Opportunity Title">
-
-<input
-name="city"
-placeholder="City">
+      method="POST"
+      hx-post="/listings"
 
 
-<textarea
-name="description"
-placeholder="Description"></textarea>
+      hx-target="#listing-list"
+      hx-swap="afterbegin"
+      class="mb-8 space-y-4 rounded-xl bg-white p-6 shadow"
+    >
 
+      <input
 
-<button type="submit">
-Create Listing
-</button>
+        name="organization"
+        placeholder="Organization Name"
+        required
+        class="w-full rounded-md border border-slate-400 px-3 py-2"
 
-</form>
+      >
 
+      <input
+        name="title"
+        placeholder="Opportunity Title:"
+        required
 
-<h2>Current Listings</h2>
+        class="w-full rounded-md border border-slate-400 px-3 py-2"
+      >
 
+      <input
+        name="city"
 
-<% listings.forEach(listing => { %>
+        placeholder="City"
+        required
+        class="w-full rounded-md border border-slate-400 px-3 py-2"
+      >
 
-<div class="listing-card">
+      <textarea
+        name="description"
+        placeholder="Description"
 
-<h3>
-<%= listing.title %>
-</h3>
+        required
+        class="min-h-28 w-full rounded-md border border-slate-400 px-3 py-2"
+      ></textarea>
 
-<p>
-Organization: <%= listing.organization %>
-</p>
+      <button
 
-<p>
-City: <%= listing.city %>
-</p>
+        type="submit"
 
-<p>
-<%= listing.description %>
-</p>
+        class="rounded-md bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-800"
 
-</div>
+      >
+        Create Listing
+      </button>
+    </form>
 
+    <h2 class="mb-4 text-2xl font-semibold">Current Listings</h2>
 
-<% }) %>
+    <section id="listing-list" class="space-y-4">
+      <% listings.forEach((listing) => { %>
 
+        <%- include("partials/listing-card", { listing }) %>
+      <% }) %>
+    </section>
 
+  </main>
 </body>
 </html>
