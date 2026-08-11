@@ -19,6 +19,7 @@ const ListingSchema = new mongoose.Schema(
 organization: { type: String, required: true, trim: true },
 description: { type: String, required: true, trim: true },
 city: { type: String, required: true, trim: true },
+ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 
   },
   { timestamps: true },
