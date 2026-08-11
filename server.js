@@ -1,13 +1,20 @@
 import express from "express";
 import "dotenv/config";
+import cookieParser from "cookie-parser";
+import { attachUser } from "./middleware/attachUser.js";
+import authRouter from "./routes/auth.js"; // authRouter name exported as default router - no name specified...... so we are going based off of the notes implementation name (authRouter)
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
+const SESSION_SECRET =
+  process.env.SESSION_SECRET || "dev-secret-change-in-production";
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
-
+app.use(cookieParser(SESSION_SECRET));
+app.use(attachUser);
 
 //
 app.use("/vendor/htmx", express.static("node_modules/htmx.org/dist"));
@@ -16,7 +23,7 @@ import mongoose from "mongoose";
 import listingRoutes from "./routes/listingRoutes.js";
 
 app.use("/listings", listingRoutes);
-
+app.use(authRouter);
 
 // first route.... the landing/home page
 app.get("/", (req, res) => {
@@ -95,7 +102,6 @@ app.get("/project_purpose", (req, res) => {
 </html>
 `);
 });
-
 
 async function startServer() {
   if (!process.env.MONGODB_URI) {
