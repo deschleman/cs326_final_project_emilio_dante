@@ -13,6 +13,11 @@ const SESSION_SECRET =
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("public"));
+
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.use(cookieParser(SESSION_SECRET));
 app.use(attachUser);
 

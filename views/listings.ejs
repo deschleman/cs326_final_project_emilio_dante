@@ -22,61 +22,92 @@
     </h1>
 
     <form
-      id="listing-form"
-      action="/listings"
+    id="listing-form"
+    action="/listings"
+    method="POST"
+    hx-post="/listings"
+    hx-target="#listing-list"
+    hx-swap="afterbegin"
+    class="mb-8 space-y-4 rounded-xl bg-white p-6 shadow"
+  >
 
-      method="POST"
-      hx-post="/listings"
-
-
-      hx-target="#listing-list"
-      hx-swap="afterbegin"
-      class="mb-8 space-y-4 rounded-xl bg-white p-6 shadow"
-    >
-
+    <div>
+      <label for="organization" class="mb-1 block font-medium text-slate-800">
+        Organization name
+      </label>
       <input
-
+        id="organization"
         name="organization"
         placeholder="Organization Name"
         required
-        class="w-full rounded-md border border-slate-400 px-3 py-2"
-
+        class="w-full rounded-md border border-slate-400 px-3 py-2
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
       >
+    </div>
 
+
+    <div>
+      <label for="title" class="mb-1 block font-medium text-slate-800">
+        Opportunity title
+      </label>
       <input
+        id="title"
         name="title"
-        placeholder="Opportunity Title:"
+        placeholder="Opportunity Title"
         required
-
-        class="w-full rounded-md border border-slate-400 px-3 py-2"
+        class="w-full rounded-md border border-slate-400 px-3 py-2
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
       >
+    </div>
 
+
+
+    <div>
+      <label for="city" class="mb-1 block font-medium text-slate-800">
+        City
+      </label>
       <input
+        id="city"
         name="city"
-
         placeholder="City"
         required
-        class="w-full rounded-md border border-slate-400 px-3 py-2"
+        class="w-full rounded-md border border-slate-400 px-3 py-2
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
       >
+    </div>
 
+
+    <div>
+      <label for="description" class="mb-1 block font-medium text-slate-800">
+        Description
+      </label>
       <textarea
+        id="description"
         name="description"
         placeholder="Description"
-
         required
-        class="min-h-28 w-full rounded-md border border-slate-400 px-3 py-2"
+        class="min-h-28 w-full rounded-md border border-slate-400 px-3 py-2
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
       ></textarea>
+    </div>
 
-      <button
 
-        type="submit"
 
-        class="rounded-md bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-800"
+    <button
+      type="submit"
+      class="rounded-md bg-emerald-700 px-4 py-2 font-medium text-white
+        hover:bg-emerald-800
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+    >
+      Create Listing
+    </button>
+  </form>
 
-      >
-        Create Listing
-      </button>
-    </form>
 
     <h2 class="mb-4 text-2xl font-semibold">Current Listings</h2>
 

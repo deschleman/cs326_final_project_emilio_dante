@@ -9,8 +9,8 @@ import * as usersRepository from "../repositories/usersRepository.js";
 
 // lets go off of unit 18 as a base
 
-export async function createListing(data) {
-  //main thing i didnt do correrctly
+export async function createListing(data, actor) {
+
   const organization = data.organization?.trim();
   const title = data.title?.trim();
   const city = data.city?.trim();
