@@ -14,7 +14,7 @@ export async function showListings(req, res) {
 export async function addListing(req, res) {
   try {
     // saves returneed listing so controller can render as htmx card.
-    const listing = await createListing(req.body);
+    const listing = await createListing(req.body, req.user);
 
     if (req.get("HX-Request") === "true") {
       res.status(201).render("partials/listing-card", { listing });
