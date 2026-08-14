@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "start": "node server.js",
-    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/style.css --minify"
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/style.css --minify",
+    "seed": "node seed.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "htmx.org": "^2.0.10",
+    "mongodb": "^7.5.0",
     "mongoose": "^9.9.1"
   },
   "devDependencies": {
