@@ -1,0 +1,114 @@
+
+
+cat > views/signup.ejs <<'EOF'
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+
+
+<body class="min-h-screen bg-slate-200 text-slate-800">
+
+
+  <%- include("partials/header") %>
+
+
+  <main class="mx-auto max-w-3xl p-6">
+
+    <h1 class="mb-6 text-3xl font-bold text-emerald-600">
+      Create an Account
+    </h1>
+
+
+    <form
+      action="/signup"
+      method="POST"
+      class="space-y-4 rounded-xl bg-white p-2 shadow"
+    >
+
+
+      <div>
+        <label
+          for="email"
+          class="mb-1 block font-medium text-slate-800"
+        >
+          Email
+        </label>
+
+
+
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          class="w-full rounded-md border border-b-slate-300 px-3 py-2
+            focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2
+            focus-visible:outline-emerald-600"
+        >
+      </div>
+
+
+      <div>
+        <label
+          for="password"
+          class="mb-1 block font-medium text-slate-800"
+        >
+          Password
+        </label>
+
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          class="w-full rounded-md border border-b-slate-300 px-3 py-2
+            focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2
+            focus-visible:outline-emerald-600"
+        >
+      </div>
+
+
+      <button
+        type="submit"
+        class="rounded-md bg-emerald-600 px-4 py-2 font-medium text-white
+          hover:bg-emerald-900
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2
+          focus-visible:outline-emerald-600"
+      >
+        Sign Up
+      </button>
+
+
+    </form>
+
+
+
+    <p class="mt-4">
+      Already have an account?
+      <a
+        href="/login"
+        class="font-medium text-emerald-600 underline"
+      >
+        Log in
+      </a>
+    </p>
+
+  </main>
+
+
+</body>
+</html>
+EOF

@@ -30,27 +30,12 @@ import listingRoutes from "./routes/listingRoutes.js";
 app.use("/listings", listingRoutes);
 app.use(authRouter);
 
-// first route.... the landing/home page
+// changed to use homepage.ejs, forgot to easlier
 app.get("/", (req, res) => {
-  res.send(`<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Home Page</title>
-  </head>
-  <body>
-    <h1>Home</h1>
-
-    <p>
-      Stay tuned for more information! This page will be updated regularly with
-      news surrounding volunteering opportunities...
-    </p>
-  </body>
-</html>
-`);
+  res.render("home_page");
 });
 
-// second route.... the 'about page'  - some more information about us
+// second route --> the 'about page"  - some more information about us
 app.get("/about", (req, res) => {
   res.send(`
   <!doctype html>
@@ -73,11 +58,7 @@ app.get("/about", (req, res) => {
         </p>
 
         <p>
-          I am a rising senior at UMass Amherst, studying Informatics with a
-          computer science minor. I am currently doing internship at liberty mutual
-          on the data science team. I have experience in python and Java, data
-          structures a little bit of algorithms. And I am very excited to get a
-          better understanding of web systems.
+          My names Emilio Velazquez, I am a rising senior at UMass Amherst studying Informatics with a computer science minor. I am currently doing internship at liberty mutual on the data science team. I have experience in python and Java, data structures a little bit of algorithms. And I am very excited to get a better understanding of web systems.
         </p>
       </body>
     </html>

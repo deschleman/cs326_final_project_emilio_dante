@@ -1,15 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Home Page</title>
-  </head>
-  <body>
-    <h1>Home</h1>
+<head>
 
-    <p>
-      Stay tuned for more information! This page will be updated regularly with
-      news surrounding volunteering opportunities...
-    </p>
-  </body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteering Opportunities</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+
+<body class="min-h-screen bg-slate-200 text-slate-800">
+
+
+  <%- include("partials/header") %>
+
+
+  <main class="mx-auto max-w-3xl p-6">
+
+
+    <section class="rounded-xl bg-white p-8 shadow">
+
+      <h1 class="mb-4 text-3xl font-bold text-emerald-600">
+        Volunteering Opportunities
+      </h1>
+
+      <p class="mb-6 text-slate-700">
+        Find and create volunteer opportunities in your community.
+      </p>
+
+      <a
+        href="/listings"
+        class="inline-block rounded-md bg-emerald-600 px-4 py-2
+          font-medium text-white hover:bg-emerald-900"
+      >
+        View Volunteer Opportunities
+      </a>
+
+
+
+    </section>
+
+  </main>
+
+</body>
 </html>
