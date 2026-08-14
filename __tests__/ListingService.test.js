@@ -93,23 +93,29 @@ test("creates a valid listing", async () => {
 
   create.mockResolvedValue(savedListing);
 
-  await expect(
 
-    createListing({
-      organization: "Mayo Clinic",
-      title: "Volunteer Shift",
-      city: "Boston",
-      description: "Help visitors.",
-    }),
+
+  await expect(
+    createListing(
+      {
+        organization: "Mayo Clinic",
+        title: "Volunteer Shift",
+        city: "Boston",
+        description: "Help visitors.",
+      },
+      { id: "user-123" }
+    ),
   ).resolves.toEqual(savedListing);
+
 
   expect(create).toHaveBeenCalledWith({
     organization: "Mayo Clinic",
-
     title: "Volunteer Shift",
     city: "Boston",
     description: "Help visitors.",
+    ownerId: "user-123",
   });
+
 });
 
 
@@ -146,25 +152,32 @@ test("rejects a title containing only spaces", async () => {
   expect(create).not.toHaveBeenCalled();
 });
 
+
+
 test("trims values before saving a listing", async () => {
   create.mockResolvedValue({ _id: "fake-id" });
 
-  await createListing({
-    organization: "  Mayo Clinic  ",
-    title: "  Volunteer Shift  ",
-    city: "  Boston  ",
-    description: "  Help visitors.  ",
-  });
+
+
+  await createListing(
+    {
+      organization: "  Mayo Clinic  ",
+      title: "  Volunteer Shift  ",
+      city: "  Boston  ",
+      description: "  Help visitors.  ",
+    },
+    { id: "user-123" }
+  );
+
 
   expect(create).toHaveBeenCalledWith({
     organization: "Mayo Clinic",
-
     title: "Volunteer Shift",
     city: "Boston",
     description: "Help visitors.",
+    ownerId: "user-123",
   });
 });
-
 
 
 test("returns all listings", async () => {
